@@ -90,11 +90,13 @@ void EXT_LEXER_DECL GetLexerStatusText(unsigned int /*Index*/, TCHAR *desc, int 
 	}
 }
 
-LexerFactoryFunction EXT_LEXER_DECL GetLexerFactory(unsigned int index) {
-	if (index == 0)
-		return LexerGmodLua::LexerFactory;
-	else
-		return 0;
+ILexer* LexerGmodLua::LexerFactory()
+{
+	return new LexerGmodLua();
+}
+
+LexerFactoryFunction EXT_LEXER_DECL GetLexerFactoryByIndex(int index) {
+	return (index == 0) ? LexerGmodLua::LexerFactory : nullptr;
 }
 
 void GmodLua::aboutDlg()

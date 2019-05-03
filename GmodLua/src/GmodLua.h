@@ -19,8 +19,10 @@
 #ifndef GMOD_LUA_H
 #define GMOD_LUA_H
 
+#include <cassert>
+
 // Notepad++ includes
-#include "precompiledHeaders.h"
+#include "Common.h"
 #include "PluginInterface.h"
 
 // Scintilla includes
@@ -83,18 +85,12 @@ namespace GmodLua
 	class LexerGmodLua : public LexerBase {
 	public:
 		LexerGmodLua() {}
+		virtual ~LexerGmodLua() {}
+
+		static ILexer *LexerFactory();
 
 		void SCI_METHOD Lex(unsigned int startPos, int length, int initStyle, IDocument *pAccess);
 		void SCI_METHOD Fold(unsigned int startPos, int length, int initStyle, IDocument *pAccess);
-
-		static ILexer *LexerFactory() {
-			try {
-				return new LexerGmodLua();
-			} catch (...) {
-				// Should not throw into caller as may be compiled with different compiler or options
-				return 0;
-			}
-		}
 	};
 	
 	void Colourise_Doc(unsigned int startPos, int length, int initStyle, WordList *keywordlists[], Accessor &styler);
