@@ -25,3 +25,11 @@ LNK2001 | ?WordListSet@LexerBase@@UAGHHPBD@Z | ?WordListSet@LexerBase@Scintilla@
 LNK2001 | ?PrivateCall@LexerBase@@UAGPAXHPAX@Z | ?PrivateCall@LexerBase@Scintilla@@UAGPAXHPAX@Z
 LNK2019 | ??0Accessor@@QAE@PAVIDocument@@PAVPropSetSimple@@@Z | ??0Accessor@Scintilla@@QAE@PAVIDocument@1@PAVPropSetSimple@1@@Z
 LNK2019 | ?GetCurrent@StyleContext@@QAEXPADI@Z | ?GetCurrent@StyleContext@Scintilla@@QAEXPADI@Z
+
+## To Compile: ##
+
+1. Grab this repository, using Git or by downloading it.
+2. Grab the [Source Code for Notepad++](https://github.com/notepad-plus-plus/notepad-plus-plus), using Git or by downloading it
+3. Put the two repositories so that the GmodLua, PowerEditor, and scintilla folders are all in the same folder.
+4. Open GmodLua/vcbuild/GmodLuaPlugin.vs2008.sln
+5. Attempt to Build the Solution like normally.
